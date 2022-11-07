@@ -1,0 +1,4 @@
+debug: info
+jwt:
+  secret:
+    privateKey: evmlODRMAMAEFjs0VPB3lSG53cmU645xL6cDcX6GFHT9xUu1Wxu3tVqba_00WXTCyPvALxYdP-1fIEMxEZxf8EJYcinmpzTy
