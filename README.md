@@ -21,3 +21,7 @@ Once the file and the corresponding index file has been generated, you need to u
 server without a manual upload process.
 On top of Spring Security, you are requested to design and implement a more robust security
 mechanism.
+
+# Check Swagger for All Endpoints
+
+http://localhost:8080/swagger-ui/index.html

@@ -3,6 +3,7 @@ package com.moneyware.bank.documentservice.controller;
 import com.moneyware.bank.documentservice.dto.ResponseDTO;
 import com.moneyware.bank.documentservice.entity.UserEntity;
 import com.moneyware.bank.documentservice.service.UserDetail;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import static com.moneyware.bank.documentservice.constants.MessageConstants.CREA
 @RestController
 @RequestMapping("/user")
 @CrossOrigin()
+@SecurityRequirement(name = "Bearer Authentication")
 public class UserController {
 
     @Autowired

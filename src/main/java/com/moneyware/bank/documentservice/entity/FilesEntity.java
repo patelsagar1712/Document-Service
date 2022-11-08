@@ -1,6 +1,7 @@
 package com.moneyware.bank.documentservice.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -11,11 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Data
+@Builder
 @Table(name = "files")
 public class FilesEntity {
     @Id
@@ -33,7 +36,7 @@ public class FilesEntity {
     private long fileSize;
 
     @Column(name = "timestamp")
-    private String timeStamp;
+    private LocalDate timeStamp;
 
     @Column
     private int customerId;
@@ -44,7 +47,7 @@ public class FilesEntity {
     @Column
     private String status;
 
-    public FilesEntity(String fileName, long fileSize, String timeStamp, int customerId, String documentType, String status, byte[] data) {
+    public FilesEntity(String fileName, long fileSize, LocalDate timeStamp, int customerId, String documentType, String status, byte[] data) {
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.timeStamp = timeStamp;

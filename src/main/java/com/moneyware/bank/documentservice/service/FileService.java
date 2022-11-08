@@ -6,5 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 public interface FileService {
+
     FilesEntity saveFile(MultipartFile file, String documentType, int customerId) throws IOException;
 }

@@ -21,11 +21,9 @@ import javax.validation.Valid;
 public class LoginController {
 
     @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
     JwtUtil jwtUtil;
-
+    @Autowired
+    private UserDetailsService userDetailsService;
     @Autowired
     private AuthenticationManager authenticationManager;
 
