@@ -10,12 +10,9 @@ import java.io.OutputStreamWriter;
 import java.util.Calendar;
 
 public class FileUtils {
-    static ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-
     public static File generateIndexFile(FilesEntity fileDB) throws IOException {
 
-
-        File file = new File(classLoader.getResource(".").getFile() + "/" + "DS" + Calendar.getInstance().getTimeInMillis() + ".txt");
+        File file = new File("./uploads/files", "DS" + Calendar.getInstance().getTimeInMillis() + ".txt");
         if (file.createNewFile()) {
             FileOutputStream fos = new FileOutputStream(file);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));

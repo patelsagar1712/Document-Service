@@ -1,5 +1,6 @@
 package com.moneyware.bank.documentservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class FilesEntity {
     private String id;
 
     @Lob
+    @JsonIgnore
     private byte[] data;
 
     @Column(name = "filename")
@@ -39,7 +41,7 @@ public class FilesEntity {
     private LocalDate timeStamp;
 
     @Column
-    private int customerId;
+    private String customerId;
 
     @Column
     private String documentType;
@@ -47,7 +49,13 @@ public class FilesEntity {
     @Column
     private String status;
 
-    public FilesEntity(String fileName, long fileSize, LocalDate timeStamp, int customerId, String documentType, String status, byte[] data) {
+
+    public FilesEntity(String fileName, String customerId) {
+        this.fileName = fileName;
+        this.customerId = customerId;
+    }
+
+    public FilesEntity(String fileName, long fileSize, LocalDate timeStamp, String customerId, String documentType, String status, byte[] data) {
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.timeStamp = timeStamp;

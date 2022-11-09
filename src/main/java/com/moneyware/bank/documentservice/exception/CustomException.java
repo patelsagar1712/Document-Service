@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class CustomException extends RuntimeException {
     private String message;
     private HttpStatus httpStatus;

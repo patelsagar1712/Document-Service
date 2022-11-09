@@ -1,5 +1,6 @@
 package com.moneyware.bank.documentservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,11 +26,13 @@ public class UserEntity {
     @GeneratedValue
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "username")
     @NotNull(message = PLEASE_PROVIDE_NAME)
-    private String name;
+    private String username;
 
     @Column(name = "password")
     @NotNull(message = PLEASE_PROVIDE_PASSWORD)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
 }

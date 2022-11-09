@@ -40,4 +40,8 @@ public class MessageConstants {
     public static final String UPLOADED_FAILED = "Uploaded failed : ";
 
     public static final String UNABLE_TO_SAVE_DOCUMENT = "Unable to save document";
+
+    public static final String USER_DOES_NOT_EXIST = "User Does not exist";
+
+    public static final String INCORRECT_USER_NAME_PASSWORD_PROVIDED = "Incorrect UserName/Password Provided";
 }

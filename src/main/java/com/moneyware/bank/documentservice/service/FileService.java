@@ -7,5 +7,5 @@ import java.io.IOException;
 
 public interface FileService {
 
-    FilesEntity saveFile(MultipartFile file, String documentType, int customerId) throws IOException;
+    FilesEntity saveFile(MultipartFile file, String token) throws IOException;
 }

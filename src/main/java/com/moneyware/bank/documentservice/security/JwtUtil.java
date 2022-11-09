@@ -1,5 +1,6 @@
 package com.moneyware.bank.documentservice.security;
 
+import com.moneyware.bank.documentservice.entity.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -51,6 +52,11 @@ public class JwtUtil {
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, userDetails.getUsername());
+    }
+
+    public String generateToken(UserEntity userEntity) {
+        Map<String, Object> claims = new HashMap<>();
+        return doGenerateToken(claims, userEntity.getUsername());
     }
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {

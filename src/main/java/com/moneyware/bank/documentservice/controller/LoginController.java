@@ -20,16 +20,22 @@ import javax.validation.Valid;
 @CrossOrigin
 public class LoginController {
 
+    private final JwtUtil jwtUtil;
+
+    private final UserDetailsService userDetailsService;
+
+    private final AuthenticationManager authenticationManager;
+
     @Autowired
-    JwtUtil jwtUtil;
-    @Autowired
-    private UserDetailsService userDetailsService;
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    public LoginController(JwtUtil jwtUtil, UserDetailsService userDetailsService, AuthenticationManager authenticationManager) {
+        this.jwtUtil = jwtUtil;
+        this.userDetailsService = userDetailsService;
+        this.authenticationManager = authenticationManager;
+    }
 
 
     @PostMapping(value = "/login")
-    public ResponseEntity<LoginResponseDTO> createAuthenticationToken(@RequestBody @Valid LoginRequestDTO authenticationRequest) throws Exception {
+    public ResponseEntity<LoginResponseDTO> createAuthenticationToken(@RequestBody @Valid LoginRequestDTO authenticationRequest) {
 
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 

@@ -7,8 +7,10 @@ import com.moneyware.bank.documentservice.upload.UploadGateway;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,12 +31,12 @@ public class FileController {
 
     @PostMapping(value = "/upload")
     public FilesEntity uploadFile(@RequestParam("file") MultipartFile file,
-                                  @RequestParam("type") String documentType, @RequestParam("customerId") int customerId) {
+                                  @RequestHeader(name = "Authorization") String token) {
         try {
-            return fileService.saveFile(file, documentType, customerId);
+            return fileService.saveFile(file, token);
         } catch (Exception e) {
             log.error(e.getMessage());
-            throw new CustomException();
+            throw new CustomException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
     }
 }
