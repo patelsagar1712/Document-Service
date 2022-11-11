@@ -23,8 +23,7 @@ import static com.moneyware.bank.documentservice.constants.MessageConstants.CREA
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin()
-
+@CrossOrigin(origins = "http://localhost:4200/")
 public class UserController {
 
     @Autowired

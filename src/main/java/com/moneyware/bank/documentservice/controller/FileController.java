@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/file")
-@CrossOrigin()
+@CrossOrigin(origins = "http://localhost:4200")
 @Slf4j
 @SecurityRequirement(name = "Bearer Authentication")
 public class FileController {

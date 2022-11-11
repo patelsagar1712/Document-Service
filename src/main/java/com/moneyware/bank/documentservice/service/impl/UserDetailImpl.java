@@ -33,6 +33,10 @@ public class UserDetailImpl implements UserDetail {
 
     @Override
     public UserEntity saveUser(UserEntity user) {
+        UserEntity userEntity = userRepository.findByUsername(user.getUsername());
+        if (userEntity != null) {
+            throw new CustomException(HttpStatus.BAD_REQUEST, "User Already Exist with username " + user.getUsername());
+        }
         return userRepository.save(user);
     }
 
